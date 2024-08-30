@@ -1,0 +1,27 @@
+{
+  "name": "ts-template",
+  "private": true,
+  "scripts": {
+    "prestart": "npm run build",
+    "build": "tsc -b",
+    "start": "node dist/main.js",
+    "dev": "ts-node-dev --exit-child --transpile-only  --inspect -- src/main.ts",
+    "lint:fix": "eslint ./ --ext .js,.ts --quiet --fix --ignore-path ./.gitignore",
+    "lint:format": "prettier --loglevel warn --write \"./**/*.{js,ts,md,json}\" ",
+    "lint": "npm run lint:format && npm run lint:fix"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.5",
+    "@typescript-eslint/eslint-plugin": "^7.13.1",
+    "@typescript-eslint/parser": "^7.13.1",
+    "prettier": "^3.3.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.4.5"
+  },
+  "prettier": {
+    "singleQuote": false,
+    "arrowParens": "always",
+    "trailingComma": "es5",
+    "endOfLine": "lf"
+  }
+}
